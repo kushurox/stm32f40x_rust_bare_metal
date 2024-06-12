@@ -1,0 +1,5 @@
+/target
+src/test
+.vscode
+*.lock
+firmware/*
