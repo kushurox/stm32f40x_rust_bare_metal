@@ -22,24 +22,27 @@ SECTIONS {
       *(.text .text.*)
     } > FLASH
 
-    .data : {
-      _sdata = .;
-      *(.data .data.*);
-      _edata = .;
-    } > SRAM AT > FLASH  /* setting VMA to RAM and LMA to FLASH */
-
     .rodata : {
       KEEP(*(.rodata .rodata.*));
     } > FLASH
 
     .bss : {
       _sbss = .;
-      *(.bss .bss.*);
+      KEEP(*(.bss .bss.*));
       _ebss = .;
     } > SRAM
 
+    .data :{
+      _sdata = .;
+      KEEP(*(.data .data.*));
+      _edata = .;
+    } > SRAM AT>FLASH
+
+     _sidata = LOADADDR(.data);
+
     /DISCARD/ :{
       *(.ARM.exidx .ARM.exidx.*);
+      *(.comment)
     }
 
 }
