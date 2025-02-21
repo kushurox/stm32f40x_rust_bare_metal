@@ -1,0 +1,18 @@
+[package]
+name = "clocksandmore"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.5"
+cortex-m-semihosting = "0.5.0"
+panic-halt = "1.0.0"
+
+
+[[bin]]
+name = 'clocksandmore'
+path = "src/main.rs"
+doctest = false
+bench = false
+test = false
